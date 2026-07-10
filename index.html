@@ -95,12 +95,24 @@ a {
     color: #666;
 }
 
-/* ARTICLE GRID */
+/* ARTICLE GRID - 优化点 1: 修改为 3 列，并增加响应式适配 */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Force two equal columns */
+    grid-template-columns: repeat(3, 1fr); /* 核心修改：改为每排 3 个 */
     gap: 30px;
     padding-bottom: 60px;
+}
+
+/* 补充：移动端响应式优化，防止在手机上排版过挤 */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板尺寸一行 2 个 */
+    }
+}
+@media (max-width: 576px) {
+    .grid {
+        grid-template-columns: 1fr; /* 手机尺寸一行 1 个 */
+    }
 }
 
 /* ARTICLE CARDS */
@@ -204,18 +216,19 @@ html, body {
     <p>Symptoms, pricing factors, and wholesale sourcing strategy explained in detail.</p>
     <a href="top-10-brake-pads-manufacturers.html">Read article →</a>
   </article>
-<article class="card">
+
+  <article class="card">
     <span class="tag">Brake</span>
-    <h3>Top 10 Brake Pads Manufacturers</h3>
+    <h3>How to Change Brake Pads</h3>
     <p>Symptoms, pricing factors, and wholesale sourcing strategy explained in detail.</p>
     <a href="how-to-change-brake-pads">Read article →</a>
-    <article class="card">
+  </article> <article class="card">
     <span class="tag">Brake</span>
     <h3>Top 10 Ball Joints Suppliers in World</h3>
     <p>Symptoms, pricing factors, and wholesale sourcing strategy explained in detail.</p>
     <a href="top-10-ball-joints-suppliers-in-world">Read article →</a>
   </article>
-  </article>
+
 </section>
 
 <footer class="footer">
